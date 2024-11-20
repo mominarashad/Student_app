@@ -1,0 +1,268 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif; /* Use a modern font */
+}
+
+/* Body and Background */
+body {
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    padding-top: 4rem; /* Adjust for fixed navbar height */
+    position: relative; /* Ensure overlay works properly */
+    background: linear-gradient(135deg, #a7c7e7, #f0f8ff); /* Light blue gradient background */
+    background-size: cover; /* Ensures the gradient fills the screen */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Overlay Styling */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5); /* Lighter overlay for better text contrast */
+    animation: fadeInOverlay 1.5s ease-in-out; /* Smooth overlay fade-in */
+    z-index: 1;
+}
+
+/* Content Styling */
+.content {
+    position: relative;
+    z-index: 2; /* Ensure the content is above the overlay */
+    color: #333; /* Dark text for readability */
+    font-size: 2.5rem;
+    font-weight: bold; /* Stronger text */
+    text-align: center;
+    padding-top: 20%;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4); /* Subtle text shadow for better visibility */
+    animation: slideIn 1s ease-out; /* Animation for text */
+}
+
+/* Welcome Message Box Styling */
+.welcome-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.8); /* Lighter transparent background */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    text-align: center;
+    transform: translateY(20px); /* Slight vertical shift for depth */
+    animation: slideUp 1s ease-out; /* Animation for sliding effect */
+}
+
+.welcome-container h1 {
+    font-size: 2rem;
+    color: #333;
+    margin: 0;
+}
+
+/* Navbar Styling */
+.navbar {
+    width: 100%;
+    background-color: #a7c7e7; /* Light blue background */
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.navbar:hover {
+    background-color: #f0f8ff; /* Change to a very light blue on hover */
+}
+
+.navbar-left .brand {
+    color: #333; /* Dark text for visibility */
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 2px; /* Spacing for a more modern look */
+}
+
+.navbar-right {
+    display: flex;
+    gap: 1rem; /* Increased space between links */
+}
+
+.navbar-right a {
+    color: #333; /* Dark color for links */
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 0.7rem 1.3rem;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.1); /* Slightly darkened background */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.navbar-right a:hover {
+    background-color: #a7c7e7; /* Light blue on hover */
+    transform: scale(1.1); /* Slight scale effect on hover */
+}
+
+/* Button Styling for CRUD Operations */
+.button {
+    padding: 0.7rem 1.5rem;
+    margin: 0.3rem;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button.edit {
+    background-color: #87cefa; /* Light sky blue for edit button */
+}
+
+.button.delete {
+    background-color: #4682b4; /* Steel blue for delete button */
+}
+
+.button.edit:hover {
+    background-color: #add8e6; /* Lighter blue on hover */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.button.delete:hover {
+    background-color: #5f9ea0; /* Lighter steel blue on hover */
+    transform: scale(1.05);
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade-in Animation for Overlay */
+@keyframes fadeInOverlay {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Slide-in Animation for Content */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Slide-up Animation for Welcome Box */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+form {
+    width: 100%;
+    max-width: 400px;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 2rem;
+    transition: transform 0.3s ease;
+}
+
+form:hover {
+    transform: translateY(-3px);
+}
+
+form input,
+form button {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus,
+form button:focus {
+    border-color: #1a73e8;
+    outline: none;
+}
+
+form button {
+    background-color: #1a73e8; /* Primary blue button */
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #155cb3; /* Darker blue on hover */
+}
+
+/* Table Styling for Dashboard */
+table {
+    width: 100%;
+    max-width: 800px;
+    margin-top: 2rem;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    animation: fadeIn 0.6s ease;
+}
+
+table th,
+table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #1a73e8; /* Blue header */
+    color: white;
+}
+
+table tr:hover {
+    background-color: #f0f8ff; /* Light blue on hover */
+}
